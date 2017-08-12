@@ -1,29 +1,32 @@
-E, [2017-08-08T10:51:41.209405 #98184] ERROR -- Kitchen: ------Exception-------
-E, [2017-08-08T10:51:41.210084 #98184] ERROR -- Kitchen: Class: Kitchen::UserError
-E, [2017-08-08T10:51:41.210105 #98184] ERROR -- Kitchen: Message: Kitchen YAML file /Users/sharepointoscar/learn-chef/chef-server/.kitchen.yml does not exist.
-E, [2017-08-08T10:51:41.210118 #98184] ERROR -- Kitchen: ----------------------
-E, [2017-08-08T10:51:41.210128 #98184] ERROR -- Kitchen: ------Backtrace-------
-E, [2017-08-08T10:51:41.210137 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/loader/yaml.rb:71:in `read'
-E, [2017-08-08T10:51:41.210146 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:152:in `data'
-E, [2017-08-08T10:51:41.210156 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:131:in `suites'
-E, [2017-08-08T10:51:41.210165 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:182:in `filter_instances'
-E, [2017-08-08T10:51:41.210174 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `build_instances'
-E, [2017-08-08T10:51:41.210183 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:117:in `instances'
-E, [2017-08-08T10:51:41.210193 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:112:in `filtered_instances'
-E, [2017-08-08T10:51:41.210202 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:142:in `parse_subcommand'
-E, [2017-08-08T10:51:41.210211 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command/list.rb:30:in `call'
-E, [2017-08-08T10:51:41.210220 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:53:in `perform'
-E, [2017-08-08T10:51:41.210229 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:121:in `list'
-E, [2017-08-08T10:51:41.210239 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
-E, [2017-08-08T10:51:41.210248 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
-E, [2017-08-08T10:51:41.210257 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:334:in `invoke_task'
-E, [2017-08-08T10:51:41.210266 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
-E, [2017-08-08T10:51:41.210275 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
-E, [2017-08-08T10:51:41.210284 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/bin/kitchen:13:in `block in <top (required)>'
-E, [2017-08-08T10:51:41.210294 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
-E, [2017-08-08T10:51:41.210303 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/bin/kitchen:13:in `<top (required)>'
-E, [2017-08-08T10:51:41.210312 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/kitchen:22:in `load'
-E, [2017-08-08T10:51:41.210321 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/kitchen:22:in `<main>'
-E, [2017-08-08T10:51:41.210330 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
-E, [2017-08-08T10:51:41.210338 #98184] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
-E, [2017-08-08T10:51:41.210352 #98184] ERROR -- Kitchen: ----End Backtrace-----
+I, [2017-08-11T15:45:00.977447 #16417]  INFO -- Kitchen: -----> Starting Kitchen (v1.16.0)
+E, [2017-08-11T15:45:00.977752 #16417] ERROR -- Kitchen: ------Exception-------
+E, [2017-08-11T15:45:00.977775 #16417] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2017-08-11T15:45:00.977789 #16417] ERROR -- Kitchen: Message: Kitchen YAML file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.kitchen.yml does not exist.
+E, [2017-08-11T15:45:00.977800 #16417] ERROR -- Kitchen: ----------------------
+E, [2017-08-11T15:45:00.977811 #16417] ERROR -- Kitchen: ------Backtrace-------
+E, [2017-08-11T15:45:00.977821 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/loader/yaml.rb:71:in `read'
+E, [2017-08-11T15:45:00.977831 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:152:in `data'
+E, [2017-08-11T15:45:00.977842 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:131:in `suites'
+E, [2017-08-11T15:45:00.977852 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:182:in `filter_instances'
+E, [2017-08-11T15:45:00.977862 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:141:in `build_instances'
+E, [2017-08-11T15:45:00.977873 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/config.rb:117:in `instances'
+E, [2017-08-11T15:45:00.977886 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:112:in `filtered_instances'
+E, [2017-08-11T15:45:00.977897 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command.rb:142:in `parse_subcommand'
+E, [2017-08-11T15:45:00.977907 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command/action.rb:35:in `block in call'
+E, [2017-08-11T15:45:00.977918 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/rubies/ruby-2.3.3/lib/ruby/2.3.0/benchmark.rb:293:in `measure'
+E, [2017-08-11T15:45:00.977928 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/command/action.rb:34:in `call'
+E, [2017-08-11T15:45:00.977938 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:53:in `perform'
+E, [2017-08-11T15:45:00.977948 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:187:in `block (2 levels) in <class:CLI>'
+E, [2017-08-11T15:45:00.977958 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2017-08-11T15:45:00.977969 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2017-08-11T15:45:00.977979 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/cli.rb:334:in `invoke_task'
+E, [2017-08-11T15:45:00.977989 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2017-08-11T15:45:00.978211 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2017-08-11T15:45:00.978223 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/bin/kitchen:13:in `block in <top (required)>'
+E, [2017-08-11T15:45:00.978234 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/lib/kitchen/errors.rb:171:in `with_friendly_errors'
+E, [2017-08-11T15:45:00.978244 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/gems/test-kitchen-1.16.0/bin/kitchen:13:in `<top (required)>'
+E, [2017-08-11T15:45:00.978254 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/kitchen:22:in `load'
+E, [2017-08-11T15:45:00.978271 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/kitchen:22:in `<main>'
+E, [2017-08-11T15:45:00.978283 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `eval'
+E, [2017-08-11T15:45:00.978306 #16417] ERROR -- Kitchen: /Users/sharepointoscar/.rvm/gems/ruby-2.3.3/bin/ruby_executable_hooks:15:in `<main>'
+E, [2017-08-11T15:45:00.978317 #16417] ERROR -- Kitchen: ----End Backtrace-----

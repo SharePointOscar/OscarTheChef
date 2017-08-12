@@ -29,6 +29,15 @@ sudo chef-server-ctl reconfigure
 echo "Restarting Chef server..."
 sudo chef-server-ctl restart
 
+ echo "Installing chef-manage Portal Chef server..."
+ sudo chef-server-ctl install chef-manage 
+ 
+ echo "Reconfiguring Chef server..."
+ sudo chef-server-ctl reconfigure 
+ 
+ echo "Reconfiguring Chef server..."
+ sudo chef-manage-ctl reconfigure
+
 # wait for services to be fully available
 echo "Waiting for services..."
 until (curl -D - http://localhost:8000/_status) | grep "200 OK"; do sleep 15s; done
@@ -36,8 +45,8 @@ while (curl http://localhost:8000/_status) | grep "fail"; do sleep 15s; done
 
 # create admin user
 echo "Creating a user and organization..."
-sudo chef-server-ctl user-create admin Bob Admin admin@4thcoffee.com insecurepassword --filename admin.pem
-sudo chef-server-ctl org-create 4thcoffee "Fourth Coffee, Inc." --association_user admin --filename 4thcoffee-validator.pem
+sudo chef-server-ctl user-create admin Bob Admin admin@4thcoffee.com password1 --filename admin.pem
+sudo chef-server-ctl org-create 4thcoffee "Chef Oscar's Kitchen Baby" --association_user admin --filename 4thcoffee-validator.pem
 
 # copy admin RSA private key to share
 echo "Copying admin key to /vagrant/secrets..."

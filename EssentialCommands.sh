@@ -1,3 +1,22 @@
+# copy th admin.pem 
+cp chef-server/secrets/admin.pem .chef
+
+# set FDQN for Chef Server based on IP from Vagrantfile (Chef Server and Node1)
+echo "10.1.1.33 chef-server.test" | tee -a /etc/hosts
+
+#  run these commands to fetch and verify the SSL certificate from your Chef server.
+knife ssl fetch
+
+#The certificate is added to your .chef/trusted_certs directory.
+knife ssl check
+
+#UPLOAD COOKBOOKS TO CHEF SERVER
+# Run this command from anywhere under your ROOT directory.
+knife cookbook upload jenkins
+
+# verify cookbook exists on chef server
+knife cookbook list
+
 # https://learn.chef.io/tutorials/manage-a-node/ubuntu/virtualbox/run-chef-client-periodically/
 
 # a onetime setup Bootstraping
@@ -7,7 +26,7 @@
 # to build this command we can execute the following:
 # vagrant ssh-config node1-ubuntu which provides port and indentity file location on our environment
 
-knife bootstrap localhost --ssh-port 2201 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/learn-chef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
+knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[jenkins]'
 
 # we can verify by executing 
 # knife node list
@@ -21,10 +40,10 @@ knife bootstrap localhost --ssh-port 2201 --ssh-user vagrant --sudo --identity-f
 #  continuous integration or continuous delivery (CI/CD) pipeline. For now, we're updating our server configuration by #  running chef-client manually.
 
 # upload changes
-knife cookbook upload learn_chef_apache2
+knife cookbook upload jenkins
 
 #finally trigger node to execute changes	
-knife ssh localhost --ssh-port 2201 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/learn-chef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
+knife ssh localhost --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
 
 
 # Updating All Cookbooks and corresponding dependencies
