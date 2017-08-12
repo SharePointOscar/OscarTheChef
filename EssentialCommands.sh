@@ -25,8 +25,11 @@ knife cookbook list
 # system using key-based authentication or password authentication.
 # to build this command we can execute the following:
 # vagrant ssh-config node1-ubuntu which provides port and indentity file location on our environment
+knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
 
-knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[jenkins]'
+
+#get the node IP address
+knife ssh localhost 'sudo chef-client' --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key   --attribute 'node[:ipaddress]'
 
 # we can verify by executing 
 # knife node list
@@ -43,7 +46,7 @@ knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-f
 knife cookbook upload jenkins
 
 #finally trigger node to execute changes	
-knife ssh localhost --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
+knife ssh  'node1-ubuntu' --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
 
 
 # Updating All Cookbooks and corresponding dependencies
