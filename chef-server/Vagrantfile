@@ -66,6 +66,7 @@ service ntp stop
 ntpdate -s time.nist.gov
 service ntp start
 
+echo "10.1.1.33 chef-server.test" | tee -a /etc/hosts
 echo "Node1-Ubuntu is configured!"
 EOF
 

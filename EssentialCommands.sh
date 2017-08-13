@@ -1,9 +1,6 @@
 # copy th admin.pem 
 cp chef-server/secrets/admin.pem .chef
 
-# set FDQN for Chef Server based on IP from Vagrantfile (Chef Server and Node1)
-echo "10.1.1.33 chef-server.test" | tee -a /etc/hosts
-
 #  run these commands to fetch and verify the SSL certificate from your Chef server.
 knife ssl fetch
 
@@ -25,11 +22,11 @@ knife cookbook list
 # system using key-based authentication or password authentication.
 # to build this command we can execute the following:
 # vagrant ssh-config node1-ubuntu which provides port and indentity file location on our environment
-knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[learn_chef_apache2]'
+knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu --run-list 'recipe[apache2]'
 
 
 #get the node IP address
-knife ssh localhost 'sudo chef-client' --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key   --attribute 'node[:ipaddress]'
+knife ssh localhost 'sudo chef-client' --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key  --attribute 'node[:ipaddress]'
 
 # we can verify by executing 
 # knife node list
@@ -46,7 +43,7 @@ knife ssh localhost 'sudo chef-client' --ssh-user vagrant --sudo --identity-file
 knife cookbook upload jenkins
 
 #finally trigger node to execute changes	
-knife ssh  'node1-ubuntu' --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
+knife ssh  'node1-ubuntu' --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user  vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
 
 
 # Updating All Cookbooks and corresponding dependencies
@@ -85,7 +82,7 @@ knife node show node1-ubuntu --run-list
 
 #You're now ready to run chef-client on your node. 
 # NOTE: Difference is the runlist is now the role web we created "role[web]" vs 
-knife ssh localhost --ssh-port 2201 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/learn-chef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
+knife ssh localhost --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
 
 # verify
 # Every 5–6 minutes you'll see that your node performed a recent check-in with the Chef server and ran chef-client
