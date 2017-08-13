@@ -1,8 +1,9 @@
 # Oscar The Chef
+> Can you smell what Oscar is cookin'?
 
-My Chef Vagrant environment (uses one node)
+##  My Chef Envrionment Topology
 
-![alt text](topology.png "Cute Docker Whale In Action")
+![alt text](topology.png "Chef Environment Topology")
 
 * Your workstation is the computer from which you author your cookbooks and administer your network. It's typically the machine you use everyday. Although you'll be configuring Ubuntu, your workstation can be any OS you choose – be it Linux, macOS, or Windows.
 
@@ -24,9 +25,17 @@ This script does the following
 * Sync time
 * Download the Chef Server version indicated in the script
 * Install Chef Server
-* Create an admin user (this is helpful for when you sign into the web management console)
+* Install Chef Web Management Portal
+* Create an admin user (this is helpful for when you sign into the web management portal)
 * Ensures services are up and running
 * Copy the private key to the chef server
 
-**Testing install**
-more soon..
+
+**The Node Script**
+
+* Does an apt update
+* Creates host entry to ensure chef-server.test is reachable
+
+**Testing**
+
+I'm working on it!
