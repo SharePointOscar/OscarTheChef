@@ -13,8 +13,9 @@
 ## Getting Started
 To get started, first bring up the Vagrant environment by executing the following
 
-`$ vagrant up
-
+```bash
+$ vagrant up
+```
 The Vagrantfile contains two provisioning scripts, one for the Chef Server and one for the Node server.  
 
 
@@ -49,3 +50,4 @@ The script does the following
 * Run `Berks install`
 * Run `SSL_CERT_FILE='.chef/trusted_certs/chef-server_test.crt' berks upload` to upload all Cookbooks to Chef Server
 * Upload both Roles to Chef Server `knife role from file roles/web.json && knife role from file roles/database.json`
+* 
