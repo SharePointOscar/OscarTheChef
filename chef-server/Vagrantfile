@@ -45,8 +45,9 @@ while (curl http://localhost:8000/_status) | grep "fail"; do sleep 15s; done
 
 # create admin user
 echo "Creating a user and organization..."
-sudo chef-server-ctl user-create admin Bob Admin admin@4thcoffee.com password1 --filename admin.pem
-sudo chef-server-ctl org-create 4thcoffee "Chef Oscar's Kitchen Baby" --association_user admin --filename 4thcoffee-validator.pem
+sudo chef-server-ctl user-create admin Oscar Medina me@medicorp.com password1 --filename admin.pem
+sudo chef-server-ctl org-create medicorp "Chef Oscar's Kitchen Baby" --association_user admin --filename medicorp-validator.pem
+
 
 # copy admin RSA private key to share
 echo "Copying admin key to /vagrant/secrets..."
@@ -75,9 +76,12 @@ def set_hostname(server)
 end
 
 Vagrant.configure(2) do |config|
+
   config.vm.define 'chef-server' do |cs|
     cs.vm.box = 'bento/ubuntu-14.04'
     cs.vm.hostname = 'chef-server.test'
+    cs.ssh.username = "vagrant"
+    cs.ssh.password = "vagrant"
     cs.vm.network 'private_network', ip: '10.1.1.33'
     cs.vm.provision 'shell', inline: CHEF_SERVER_SCRIPT.dup
     set_hostname(cs)
@@ -95,4 +99,13 @@ Vagrant.configure(2) do |config|
     n.vm.provision :shell, inline: NODE_SCRIPT.dup
     set_hostname(n)
   end
+
+  config.vm.define 'node2-ubuntu' do |n|
+    n.vm.box = 'bento/ubuntu-14.04'
+    n.vm.hostname = 'node2-ubuntu'
+    n.vm.network 'private_network', ip: '10.1.1.35'
+    n.vm.provision :shell, inline: NODE_SCRIPT.dup
+    set_hostname(n)
+  end
+
 end

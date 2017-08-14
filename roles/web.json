@@ -13,7 +13,7 @@
   "chef_type": "role",
   "run_list": ["recipe[chef-client::default]",
                "recipe[chef-client::delete_validation]",
-               "recipe[apache2::default]"
+               "recipe[nodejs]"
   ],
   "env_run_lists": {
   }

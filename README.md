@@ -36,6 +36,16 @@ This script does the following
 * Does an apt update
 * Creates host entry to ensure chef-server.test is reachable
 
-**Testing**
+**Bootstrap Nodes**
 
-I'm working on it!
+
+After the Chef Server and the two nodes have been provisioned, we must bootstrap the nodes by executing the following from the chef-server directory
+```bash
+$ ./setup.sh
+```
+The script does the following
+* Fetch and check SSL keys
+* Bootstrap both Node1 and Node2 using `knife`
+* Run `Berks install`
+* Run `SSL_CERT_FILE='.chef/trusted_certs/chef-server_test.crt' berks upload` to upload all Cookbooks to Chef Server
+* Upload both Roles to Chef Server `knife role from file roles/web.json && knife role from file roles/database.json`
