@@ -1,4 +1,8 @@
 #!/bin/bash
+# first, ensure all ip addresses used for this topology are in the hosts file 
+#echo 10.1.1.33 chef-server.test | sudo tee -a /etc/hosts
+#echo 10.1.1.34 web1.test | sudo tee -a /etc/hosts
+#echo 10.1.1.35 database1.test | sudo tee -a /etc/hosts
 
 #run these commands to fetch and verify the SSL certificate from your Chef server.
 echo "fetch ssl cert from Chef Server"
@@ -15,10 +19,10 @@ knife ssl check
 # to build this command we can execute the following:
 # vagrant ssh-config node1-ubuntu which provides port and indentity file location on our environment
 echo "Bootstrapping Node1-Ubuntu..."
-knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu
+knife bootstrap localhost --ssh-port 2200 --ssh-user vagrant --sudo --ssh-identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key --node-name node1-ubuntu
 
 echo "Bootstrapping Node2-Ubuntu..."
-knife bootstrap localhost --ssh-port 2201 --ssh-user vagrant --sudo --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node2-ubuntu/virtualbox/private_key --node-name node2-ubuntu
+knife bootstrap localhost --ssh-port 2201 --ssh-user vagrant --sudo --ssh-identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node2-ubuntu/virtualbox/private_key --node-name node2-ubuntu
 
 echo "Running Berks install"
 cd ../ && berks install
@@ -45,7 +49,7 @@ echo "Verify Run Lists are on our Nodes"
 knife node show node1-ubuntu --run-list && knife node show node2-ubuntu --run-list
 
 echo "Run Chef Client on Node1, execute Recipes from Role"
-knife ssh localhost --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
+knife ssh localhost --ssh-port 2200 'sudo chef-client' --manual-list --ssh-user vagrant --ssh-identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node1-ubuntu/virtualbox/private_key
 
 echo "Run Chef Client on Node2, execute Recipes from Role"
-knife ssh localhost --ssh-port 2201 'sudo chef-client' --manual-list --ssh-user vagrant --identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node2-ubuntu/virtualbox/private_key
+knife ssh localhost --ssh-port 2201 'sudo chef-client' --manual-list --ssh-user vagrant --ssh-identity-file /Users/sharepointoscar/git-repos/OscarTheChef/chef-server/.vagrant/machines/node2-ubuntu/virtualbox/private_key
